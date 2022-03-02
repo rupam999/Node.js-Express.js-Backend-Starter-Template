@@ -79,7 +79,9 @@ app.get('/', (req, res) => {
 /************************ALL Routes****************************/
 /*************************************************************/
 const newsRouter = require('./routes/news');
+const auth = require('./routes/auth');
 
+auth(router);
 newsRouter(router);
 
 module.exports = app;
