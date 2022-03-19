@@ -43,6 +43,10 @@ app.use(
 );
 app.options('*', cors());
 
+/********DATABASE CONNECTION***********/
+const DB = require('./DB/index');
+DB.connectDB();
+
 /****************DEFAULT API ENDPOINT****************/
 app.use('/api', router);
 
@@ -79,9 +83,9 @@ app.get('/', (req, res) => {
 /************************ALL Routes****************************/
 /*************************************************************/
 const newsRouter = require('./routes/news');
-const auth = require('./routes/auth');
+const sub = require('./routes/subscribe');
 
-auth(router);
+sub(router);
 newsRouter(router);
 
 module.exports = app;
